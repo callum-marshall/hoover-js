@@ -8,7 +8,7 @@ describe('Hoover', () => {
   })
 
   test('reads the text file and saves it as an array of strings', () => {
-    expect(hoover.input).toEqual(['5 5', '1 1', '2 2', 'NESW'])
+    expect(hoover.input).toEqual(['5 5', '1 1', '2 2', '3 4', 'NESW'])
   })
 
   test('stores room size as coordinates', () => {
@@ -20,6 +20,18 @@ describe('Hoover', () => {
   })
 
   test('stores dirt locations as an array of coordinates', () => {
-    expect(hoover.dirtPatches).toEqual([[2, 2]])
+    expect(hoover.dirtPatches).toEqual([[2, 2], [3, 4]])
+  })
+
+  describe('#coordinates', () => {
+    test('converts strings to coordinates', () => {
+      expect(hoover.coordinates('1 2')).toEqual([1, 2])
+    })
+  })
+
+  describe('#coordinatesArray', () => {
+    test('converts an array of strings to an array of coordinates', () => {
+      expect(hoover.coordinatesArray(['1 2', '3 4'])).toEqual([[1, 2], [3, 4]])
+    })
   })
 })
