@@ -38,4 +38,10 @@ describe('Hoover', () => {
       expect(hoover.coordinatesArray(['1 2', '3 4'])).toEqual([[1, 2], [3, 4]])
     })
   })
+
+  describe('#navigateRoute', () => {
+    test('navigates route and returns final location', () => {
+      expect(hoover.navigateRoute([1, 1], ['N', 'N', 'E', 'E'])).toEqual([3, 3])
+    })
+  })
 })

@@ -20,6 +20,24 @@ class Hoover {
     })
     return coordinatesArray
   }
+
+  navigateRoute (location, instructions) {
+    instructions.forEach(function (direction) {
+      let x = location[0]
+      let y = location[1]
+      if (direction === 'N') {
+        y += 1
+      } else if (direction === 'S') {
+        y -= 1
+      } else if (direction === 'E') {
+        x += 1
+      } else if (direction === 'W') {
+        x -= 1
+      }
+      location = [x, y]
+    })
+    return location
+  }
 }
 
 module.exports = {
