@@ -41,7 +41,19 @@ describe('Hoover', () => {
 
   describe('#navigateRoute', () => {
     test('navigates route and returns final location', () => {
-      expect(hoover.navigateRoute([1, 1], ['N', 'N', 'E', 'E'])).toEqual([3, 3])
+      expect(hoover.navigateRoute([1, 1], ['W', 'S', 'E', 'N', 'N'])).toEqual([1, 2])
+    })
+  })
+
+  describe('#navigateRoute', () => {
+    test('navigates route and returns final location', () => {
+      expect(hoover.navigateRoute([1, 1], ['W', 'S', 'E', 'N', 'N'])).toEqual([1, 2])
+    })
+  })
+
+  describe('#dirtCleaned', () => {
+    test('returns the number of dirt patches cleaned', () => {
+      expect(hoover.dirtCleaned([[1, 3], [1, 4], [2, 4], [2, 3], [3, 3], [4, 3], [4, 2], [3, 2], [3, 3], [2, 3], [1, 3]], [[1, 0], [2, 2], [2, 3]])).toEqual(1)
     })
   })
 })
