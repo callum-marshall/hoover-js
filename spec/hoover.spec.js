@@ -23,6 +23,10 @@ describe('Hoover', () => {
     expect(hoover.dirtPatches).toEqual([[2, 2], [3, 4]])
   })
 
+  test('stores intructions as an array of directions', () => {
+    expect(hoover.instructions).toEqual(['N', 'E', 'S', 'W'])
+  })
+
   describe('#coordinates', () => {
     test('converts strings to coordinates', () => {
       expect(hoover.coordinates('1 2')).toEqual([1, 2])

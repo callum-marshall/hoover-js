@@ -6,6 +6,7 @@ class Hoover {
     this.roomSize = this.coordinates(this.input[0])
     this.currentLocation = this.coordinates(this.input[1])
     this.dirtPatches = this.coordinatesArray(this.input.slice(2, -1))
+    this.instructions = this.input[this.input.length - 1].split('')
   }
 
   coordinates (string) {
