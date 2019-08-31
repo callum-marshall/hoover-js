@@ -14,4 +14,12 @@ describe('Hoover', () => {
   test('stores room size as coordinates', () => {
     expect(hoover.roomSize).toEqual([5, 5])
   })
+
+  test('stores current location as coordinates', () => {
+    expect(hoover.currentLocation).toEqual([1, 1])
+  })
+
+  test('stores dirt locations as an array of coordinates', () => {
+    expect(hoover.dirtPatches).toEqual([[2, 2]])
+  })
 })
