@@ -10,7 +10,7 @@ describe('Feature Tests', () => {
   test('runs evaluation correctly', () => {
     hoover = new Hoover('./spec/test_files/test_file2.txt')
     hoover.navigateRoute(hoover.currentLocation, hoover.instructions)
-    hoover.dirtCleaned(hoover.routeTaken, hoover.dirtPatches)
+    hoover.cleanDirt(hoover.routeTaken, hoover.dirtPatches)
     hoover.printOutput()
     expect(console.log).toHaveBeenCalledWith('1 3\n1')
   })

@@ -39,9 +39,9 @@ describe('Hoover', () => {
     })
   })
 
-  describe('#dirtCleaned', () => {
+  describe('#cleanDirt', () => {
     test('returns the number of dirt patches cleaned', () => {
-      expect(hoover.dirtCleaned(['0 1', '0 0', '1 0', '1 1', '1 2'], ['1 1', '2 2'])).toEqual(1)
+      expect(hoover.cleanDirt(['0 1', '0 0', '1 0', '1 1', '1 2'], ['1 1', '2 2'])).toEqual(1)
     })
   })
 })

@@ -34,7 +34,7 @@ class Hoover {
     return newArray
   }
 
-  dirtCleaned (routeTaken, dirtPatches) {
+  cleanDirt (routeTaken, dirtPatches) {
     let cleaned = 0
     dirtPatches.forEach(function (dirt) {
       if (routeTaken.includes(dirt)) {
