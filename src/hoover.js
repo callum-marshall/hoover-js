@@ -12,26 +12,27 @@ class Hoover {
   }
 
   navigateRoute (location, instructions) {
-    const newArray = []
+    const routeArray = []
+    const room = this.roomSize
     instructions.forEach(function (direction) {
       let x = location[0]
       let y = location[1]
 
       switch (direction) {
-        case 'N': y += 1
+        case 'N': if (y < room[0]) y++
           break
-        case 'E': x += 1
+        case 'E': if (x < room[0]) x++
           break
-        case 'S': y -= 1
+        case 'S': if (y > 0) y--
           break
-        case 'W': x -= 1
+        case 'W': if (x > 0) x--
           break
       }
       location = [x, y]
-      newArray.push(`${x} ${y}`)
+      routeArray.push(`${x} ${y}`)
     })
-    this.routeTaken = newArray
-    return newArray
+    this.routeTaken = routeArray
+    return routeArray
   }
 
   cleanDirt (routeTaken, dirtPatches) {
