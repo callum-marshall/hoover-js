@@ -29,7 +29,7 @@ describe('Hoover', () => {
 
   describe('#coordinates', () => {
     test('converts strings to coordinates', () => {
-      expect(hoover.coordinates('1 2')).toEqual([1, 2])
+      expect(hoover._coordinates('1 2')).toEqual([1, 2])
     })
   })
 
