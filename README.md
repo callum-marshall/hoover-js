@@ -6,3 +6,4 @@ A program for imaginary vacuum cleaners
 
 1. Clone this repo
 2. run `npm install`
+3. run `npm start`
