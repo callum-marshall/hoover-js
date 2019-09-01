@@ -5,21 +5,13 @@ class Hoover {
     this.input = fs.readFileSync(`${filename}`, 'utf8').split(/\n/)
     this.roomSize = this.coordinates(this.input[0])
     this.currentLocation = this.coordinates(this.input[1])
-    this.dirtPatches = this.coordinatesArray(this.input.slice(2, -1))
+    this.dirtPatches = this.input.slice(2, -1)
     this.instructions = this.input[this.input.length - 1].split('')
     this.routeTaken = []
   }
 
   coordinates (string) {
     return string.split(' ').map(Number)
-  }
-
-  coordinatesArray (array) {
-    const coordinatesArray = []
-    array.forEach(function (dirt) {
-      coordinatesArray.push(dirt.split(' ').map(Number))
-    })
-    return coordinatesArray
   }
 
   navigateRoute (location, instructions) {
@@ -37,21 +29,18 @@ class Hoover {
         x -= 1
       }
       location = [x, y]
-      newArray.push(location)
+      newArray.push(`${x} ${y}`)
     })
     this.routeTaken = newArray
-    return location
+    return newArray
   }
 
   dirtCleaned (route, dirtPatches) {
     let cleaned = 0
-    dirtPatches.forEach(function (dirt, index) {
-      route.forEach(function (place) {
-        if (dirt[0] === place[0] && dirt[1] === place[1]) {
-          cleaned += 1
-          dirt = 'cleaned'
-        }
-      })
+    dirtPatches.forEach(function (dirt) {
+      if (route.includes(dirt)) {
+        cleaned += 1
+      }
     })
     return cleaned
   }

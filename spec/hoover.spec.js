@@ -20,7 +20,7 @@ describe('Hoover', () => {
   })
 
   test('stores dirt locations as an array of coordinates', () => {
-    expect(hoover.dirtPatches).toEqual([[2, 2], [3, 4]])
+    expect(hoover.dirtPatches).toEqual(['2 2', '3 4'])
   })
 
   test('stores intructions as an array of directions', () => {
@@ -33,27 +33,15 @@ describe('Hoover', () => {
     })
   })
 
-  describe('#coordinatesArray', () => {
-    test('converts an array of strings to an array of coordinates', () => {
-      expect(hoover.coordinatesArray(['1 2', '3 4'])).toEqual([[1, 2], [3, 4]])
-    })
-  })
-
   describe('#navigateRoute', () => {
     test('navigates route and returns final location', () => {
-      expect(hoover.navigateRoute([1, 1], ['W', 'S', 'E', 'N', 'N'])).toEqual([1, 2])
-    })
-  })
-
-  describe('#navigateRoute', () => {
-    test('navigates route and returns final location', () => {
-      expect(hoover.navigateRoute([1, 1], ['W', 'S', 'E', 'N', 'N'])).toEqual([1, 2])
+      expect(hoover.navigateRoute([1, 1], ['W', 'S', 'E', 'N', 'N'])).toEqual(['0 1', '0 0', '1 0', '1 1', '1 2'])
     })
   })
 
   describe('#dirtCleaned', () => {
     test('returns the number of dirt patches cleaned', () => {
-      expect(hoover.dirtCleaned([[1, 3], [1, 4], [2, 4], [2, 3], [3, 3], [4, 3], [4, 2], [3, 2], [3, 3], [2, 3], [1, 3]], [[1, 0], [2, 2], [2, 3]])).toEqual(1)
+      expect(hoover.dirtCleaned(['0 1', '0 0', '1 0', '1 1', '1 2'], ['1 1', '2 2'])).toEqual(1)
     })
   })
 })
