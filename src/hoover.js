@@ -8,6 +8,7 @@ class Hoover {
     this.dirtPatches = this.input.slice(2, -1)
     this.instructions = this.input[this.input.length - 1].split('')
     this.routeTaken = []
+    this.cleanedUp = 0
   }
 
   coordinates (string) {
@@ -42,7 +43,12 @@ class Hoover {
         cleaned += 1
       }
     })
+    this.cleanedUp = cleaned
     return cleaned
+  }
+
+  printOutput () {
+    console.log(`${this.routeTaken[this.routeTaken.length - 1]}\n${this.cleanedUp}`)
   }
 }
 

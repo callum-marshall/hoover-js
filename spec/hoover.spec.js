@@ -4,7 +4,7 @@ describe('Hoover', () => {
   let hoover
 
   beforeEach(() => {
-    hoover = new Hoover('./spec/TestFile.txt')
+    hoover = new Hoover('./spec/test_files/test_file1.txt')
   })
 
   test('reads the text file and saves it as an array of strings', () => {
